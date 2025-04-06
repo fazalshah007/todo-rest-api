@@ -15,6 +15,12 @@ app.use(express.json());
 app.use(cors());
 app.use("/api/v1", userRoutes);
 
+app.get("/", (req, res) => {
+  res.status(200).json({
+    message: "response from the server"
+  })
+})
+
 connectDB();
 
 app.listen(PORT, () => {
