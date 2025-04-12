@@ -12,8 +12,14 @@ const PORT = process.env.PORT || 5000;
 
 app.use(cookieParser())
 app.use(express.json());
+
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://mern-todo-app-005.netlify.app"
+]
+
 app.use(cors({
-  origin: ["http://localhost:5173","https://mern-todo-app-005.netlify.app/"],
+  origin: allowedOrigins,
   credentials: true
 }));
 app.use("/api/v1", userRoutes);
